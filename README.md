@@ -1,14 +1,14 @@
 # iOS App Developer
 
-# Education
+### Education
 Information technology, Graduation
 
-# Work Experience
+### Work Experience
 iOS Developer at Digitalflake Pvt. Ltd
 - big impact project 1!
 - big impact project 2!
   
-# Projects
+### Projects
 
-Woloo
-Garageworks
+- Woloo
+- Garageworks
