@@ -21,15 +21,17 @@
 ### Woloo 
 ![Woloo App](/assets/Icon-Notification@3x.png) [App Store Link](https://apps.apple.com/in/app/woloo/id1571476207) 
 
-Developed objective strategy for discovering optimal EEG bands based on signal power spectra using **Python**. This data-driven approach led to better characterization of the underlying power spectrum by identifying bands that outperformed the more commonly used band boundaries by a factor of two. The proposed method provides a fully automated and flexible approach to capturing key signal components and possibly discovering new indices of brain activity.
+Developed **Woloo** app and implement new functionalities with changes in UI, Client Interaction and converting their business logic into app.
 
 
 ### GarageWorks
 ![GarageWorks](/assets/40x40_1.png) [App Store Link](https://apps.apple.com/in/app/garageworks/id6445813812)
 
-Used **Matlab** to train over 100 machine learning models which estimated particulate matter concentrations based on a suite of over 300 biometric variables. We found biometric variables can be used to accurately estimate particulate matter concentrations at ultra-fine spatial scales with high fidelity (r2 = 0.91) and that smaller particles are better estimated than larger ones. Inferring environmental conditions solely from biometric measurements allows us to disentangle key interactions between the environment and the body.
+Used and learnt Swift UI to create UIComponents got to know about how SwiftUI functions and how custom components are made in swiftUI
 
 ### eCoach - Video Coaching 
 ![eCoach - video Library](/assets/ecoachLegacyAppcopy1.png)  [App Store Link](https://apps.apple.com/us/app/ecoachbasketball/id1592997257)
+
+Developed **UI Elements** in storyboards by using UIKit framework as guided by senior and implemented functionalities, some of the UIComponents which I have learnt from here is UITableView, UICollectionView, AVFoundation etc.,
 
 
