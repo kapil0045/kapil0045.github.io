@@ -3,9 +3,9 @@
 #### Technical Skills: Swift, UIKit, CoreData, SwiftUI, Xcode
 
 ## Education
-- Ph.D., Physics | The University of Texas at Dallas (_May 2022_)								       		
-- M.S., Physics	| The University of Texas at Dallas (_December 2019_)	 			        		
-- B.S., Physics | The University of Texas at Dallas (_May 2017_)
+- Bachelors, Information technology | Rashtrasant Tukdoji Maharaj Nagpur University (_April 2021_)								       		
+- Diploma, Computer Science and Engineering	| Maharashtra State Board of Technical Education (_April 2017_)	 			        		
+- HSC, Science | Maharashtra State Board (_April 2015_)
 
 ## Work Experience
 **Data Scientist @ Toyota Financial Services (_June 2022 - Present_)**
