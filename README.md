@@ -19,12 +19,12 @@
 
 ## Projects
 ### Woloo 
-![Woloo App](/assets/Icon-Small-40@2x.png) [App Store Link](https://apps.apple.com/in/app/woloo/id1571476207) 
+![Woloo App](/assets/Icon-Notification@3x) [App Store Link](https://apps.apple.com/in/app/woloo/id1571476207) 
 
 Developed objective strategy for discovering optimal EEG bands based on signal power spectra using **Python**. This data-driven approach led to better characterization of the underlying power spectrum by identifying bands that outperformed the more commonly used band boundaries by a factor of two. The proposed method provides a fully automated and flexible approach to capturing key signal components and possibly discovering new indices of brain activity.
 
 
-### Decoding Physical and Cognitive Impacts of Particulate Matter Concentrations at Ultra-Fine Scales
+### GarageWorks
 ![GarageWorks](/assets/40x40_1.png) [App Store Link](https://apps.apple.com/in/app/garageworks/id6445813812)
 
 Used **Matlab** to train over 100 machine learning models which estimated particulate matter concentrations based on a suite of over 300 biometric variables. We found biometric variables can be used to accurately estimate particulate matter concentrations at ultra-fine spatial scales with high fidelity (r2 = 0.91) and that smaller particles are better estimated than larger ones. Inferring environmental conditions solely from biometric measurements allows us to disentangle key interactions between the environment and the body.
