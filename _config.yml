@@ -1,3 +1,4 @@
 title: Kapil Dongre
 #show_downloads: true
-theme: jekyll-theme-bulma-clean-theme
+#theme: jekyll-theme-bulma-clean-theme
+theme: chrisrhymes/bulma-clean-theme
