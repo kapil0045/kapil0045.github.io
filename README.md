@@ -19,11 +19,11 @@
 
 ## Projects
 ### Woloo (/assets/Icon-Small-40@2x.png)
-[Publication](https://apps.apple.com/in/app/woloo/id1571476207)
+[App Store Link](https://apps.apple.com/in/app/woloo/id1571476207)
 
 Developed objective strategy for discovering optimal EEG bands based on signal power spectra using **Python**. This data-driven approach led to better characterization of the underlying power spectrum by identifying bands that outperformed the more commonly used band boundaries by a factor of two. The proposed method provides a fully automated and flexible approach to capturing key signal components and possibly discovering new indices of brain activity.
 
-![EEG Band Discovery](/assets/Icon-Small-40@2x.png)
+![Woloo App](/assets/Icon-Small-40@2x.png)
 
 ### Decoding Physical and Cognitive Impacts of Particulate Matter Concentrations at Ultra-Fine Scales
 [Publication](https://www.mdpi.com/1424-8220/22/11/4240)
