@@ -1,6 +1,6 @@
-# Data Scientist
+# iOS App Developer
 
-#### Technical Skills: Python, SQL, AWS, Snowflake, MATLAB
+#### Technical Skills: Swift, UIKit, CoreData, SwiftUI, Xcode
 
 ## Education
 - Ph.D., Physics | The University of Texas at Dallas (_May 2022_)								       		
