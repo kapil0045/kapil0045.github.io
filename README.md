@@ -1,37 +1,780 @@
-# iOS App Developer
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kapil Dongre — iOS Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #1e1e1e;
+      --accent: #e8ff47;
+      --accent2: #ff6b35;
+      --text: #f0f0f0;
+      --muted: #555;
+      --muted2: #888;
+    }
 
-#### Technical Skills: Swift, UIKit, CoreData, SwiftUI, Xcode
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-## Education
-- Bachelors, Information technology | Rashtrasant Tukdoji Maharaj Nagpur University (_April 2021_)								       		
-- Diploma, Computer Science and Engineering	| Maharashtra State Board of Technical Education (_April 2017_)	 			        		
-- HSC, Science | Maharashtra State Board (_April 2015_)
+    html { scroll-behavior: smooth; }
 
-## Work Experience
-**Jr. iOS App Developer @ Ecsion Research Labs Pvt. Ltd. (December 2021 - November 2022)**
-- UI/UX development in UIKit , Cocoatouch framework
-- Hands on knowledge on JSON parsing , Alamofire, Cocoapods, Push Notifications, Firebase, Coredata
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-**iOS App Developer @ Digitalflake Pvt. ltd. (November 2022 - Present)**
-- Maintaining and bug fixing the app named Woloo which was featured in Shark Tank in UIKit
-- Netcore, Client Interaction, Team Management
-- Hands on experience on Swift UI
+    /* NOISE OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
 
-## Projects
-### Woloo 
-![Woloo App](/assets/Icon-Notification@3x.png) [App Store Link](https://apps.apple.com/in/app/woloo/id1571476207) 
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+    }
 
-Developed **Woloo** app and implement new functionalities with changes in UI, Client Interaction and converting their business logic into app.
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
 
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
 
-### GarageWorks
-![GarageWorks](/assets/40x40_1.png) [App Store Link](https://apps.apple.com/in/app/garageworks/id6445813812)
+    .nav-links a {
+      color: var(--muted2);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
 
-Used and learnt Swift UI to create UIComponents got to know about how SwiftUI functions and how custom components are made in swiftUI
+    .nav-links a:hover { color: var(--accent); }
 
-### eCoach - Video Coaching 
-![eCoach - video Library](/assets/ecoachLegacyAppcopy1.png)  [App Store Link](https://apps.apple.com/us/app/ecoachbasketball/id1592997257)
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-Developed **UI Elements** in storyboards by using UIKit framework as guided by senior and implemented functionalities, some of the UIComponents which I have learnt from here is UITableView, UICollectionView, AVFoundation etc.,
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.4;
+    }
 
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,255,71,0.06) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
 
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(232,255,71,0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .hero-desc {
+      font-size: 15px;
+      color: var(--muted2);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.8rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0a;
+      font-weight: 600;
+    }
+    .btn-primary:hover { background: #d4eb30; transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    .hero-stats {
+      position: absolute;
+      right: 4rem;
+      bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .stat {
+      text-align: right;
+    }
+
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+      line-height: 1.1;
+    }
+
+    /* SKILLS */
+    #skills { background: var(--surface); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .skill-pill {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      font-size: 12px;
+      color: var(--muted2);
+      border-radius: 2px;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .skill-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(232,255,71,0.04);
+    }
+
+    .skills-section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin: 2rem 0 0.75rem;
+    }
+
+    /* EXPERIENCE */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3.5rem;
+      padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.4rem;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(232,255,71,0.5);
+    }
+
+    .timeline-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .timeline-company {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .timeline-period {
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(232,255,71,0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    .timeline-role {
+      font-size: 12px;
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .timeline-bullets li {
+      color: var(--muted2);
+      font-size: 13px;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .timeline-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .project-card {
+      background: var(--bg);
+      padding: 2rem;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover { background: var(--surface); }
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .project-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-stack {
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .project-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .project-points li {
+      font-size: 12px;
+      color: var(--muted2);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .project-points li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    #contact {
+      background: var(--surface);
+      text-align: center;
+    }
+
+    #contact h2 { margin-bottom: 1rem; }
+    #contact h2 span { color: var(--accent); }
+
+    .contact-sub {
+      color: var(--muted2);
+      margin-bottom: 3rem;
+      font-size: 14px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted2);
+      text-decoration: none;
+      font-size: 13px;
+      border: 1px solid var(--border);
+      padding: 0.6rem 1.2rem;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(232,255,71,0.04);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem 4rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero { padding: 6rem 1.5rem 2rem; }
+      .hero-stats { position: static; flex-direction: row; margin-top: 3rem; }
+      section { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#hero">KD.</a>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Available for new opportunities</div>
+      <h1>Kapil<br><span>Dongre</span></h1>
+      <p class="hero-desc">
+        Mobile Application Developer with 4+ years crafting native iOS apps (Swift, UIKit, SwiftUI) 
+        and cross-platform Flutter applications. Based in Pune.
+      </p>
+      <div class="hero-ctas">
+        <a href="mailto:kapildongre12@gmail.com" class="btn btn-primary">Get in touch</a>
+        <a href="#experience" class="btn btn-outline">View experience</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Years exp.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">35+</div>
+        <div class="stat-label">APIs integrated</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Major projects</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">01 — Capabilities</div>
+    <h2>Technical <span style="color:var(--accent)">Stack</span></h2>
+
+    <div class="reveal">
+      <div class="skills-section-title">Languages</div>
+      <div class="skills-grid">
+        <div class="skill-pill">Swift</div>
+        <div class="skill-pill">Dart</div>
+      </div>
+
+      <div class="skills-section-title">Frameworks & Tools</div>
+      <div class="skills-grid">
+        <div class="skill-pill">UIKit</div>
+        <div class="skill-pill">SwiftUI</div>
+        <div class="skill-pill">XCode</div>
+        <div class="skill-pill">Flutter</div>
+        <div class="skill-pill">Core Data</div>
+        <div class="skill-pill">AVFoundation</div>
+        <div class="skill-pill">MapKit</div>
+        <div class="skill-pill">Firebase</div>
+        <div class="skill-pill">REST APIs</div>
+        <div class="skill-pill">GraphQL</div>
+        <div class="skill-pill">Push Notifications</div>
+        <div class="skill-pill">OAuth</div>
+        <div class="skill-pill">Keychain</div>
+        <div class="skill-pill">CocoaPods</div>
+        <div class="skill-pill">SPM</div>
+        <div class="skill-pill">Carthage</div>
+      </div>
+
+      <div class="skills-section-title">Architecture & Practices</div>
+      <div class="skills-grid">
+        <div class="skill-pill">MVVM</div>
+        <div class="skill-pill">MVC</div>
+        <div class="skill-pill">CI/CD</div>
+        <div class="skill-pill">Git / GitHub</div>
+        <div class="skill-pill">Bitbucket</div>
+        <div class="skill-pill">Unit Testing</div>
+        <div class="skill-pill">App Store</div>
+        <div class="skill-pill">JSON / XML</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">02 — History</div>
+    <h2>Work <span style="color:var(--accent)">Experience</span></h2>
+
+    <div class="timeline reveal">
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-company">Sphinx Solutions Pvt. Ltd</div>
+          <div class="timeline-period">Dec 2023 — Present</div>
+        </div>
+        <div class="timeline-role">Mobile Application Developer · Pune</div>
+        <ul class="timeline-bullets">
+          <li>Increased dev efficiency by 25% via scalable iOS & Flutter architecture</li>
+          <li>Improved app performance by 30% — optimized rendering, caching & networking</li>
+          <li>Reduced crash rates by 20% through systematic debugging & profiling</li>
+          <li>Integrated 20+ REST APIs, Firebase modules, analytics & third-party SDKs</li>
+          <li>Managed CI/CD pipelines, App Store submissions & automated builds</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-company">Digialflake Pvt. Ltd</div>
+          <div class="timeline-period">Nov 2022 — Dec 2023</div>
+        </div>
+        <div class="timeline-role">Mobile Application Developer · Pune</div>
+        <ul class="timeline-bullets">
+          <li>Delivered native iOS features with Swift, UIKit, SwiftUI</li>
+          <li>Integrated 15+ APIs, Firebase, push notifications & auth modules</li>
+          <li>Improved code maintainability by 25% via legacy codebase refactoring</li>
+          <li>Achieved 95% on-time sprint delivery with minimal production defects</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="timeline-company">Ecsion Research Labs</div>
+          <div class="timeline-period">Dec 2021 — Nov 2022</div>
+        </div>
+        <div class="timeline-role">Jr. iOS App Developer · Pune</div>
+        <ul class="timeline-bullets">
+          <li>Contributed to 10+ feature releases with Swift & MVC architecture</li>
+          <li>Resolved 50+ bugs during development & testing cycles</li>
+          <li>Supported deployment workflows, unit testing & documentation</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">03 — Work</div>
+    <h2>Featured <span style="color:var(--accent)">Projects</span></h2>
+
+    <div class="projects-grid reveal">
+
+      <div class="project-card">
+        <div class="project-name">SSPPOS</div>
+        <div class="project-stack">Swift · MVVM · GraphQL · Stripe SDK</div>
+        <ul class="project-points">
+          <li>Waiter service & restaurant management platform</li>
+          <li>Role-based auth & order management workflows</li>
+          <li>Stripe payment gateway integration</li>
+          <li>Real-time billing via efficient GraphQL handling</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Fullsteam SAWIN</div>
+        <div class="project-stack">Swift · UIKit/SwiftUI · MVVM · REST APIs</div>
+        <ul class="project-points">
+          <li>Enterprise field service management platform</li>
+          <li>Scalable task lifecycle & attendance tracking</li>
+          <li>Secure payment systems & push notifications</li>
+          <li>Modular architecture for maintainability</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Woloo</div>
+        <div class="project-stack">Swift · UIKit · MVVM · Firebase</div>
+        <ul class="project-points">
+          <li>Consumer utility application</li>
+          <li>Stabilized production codebase & improved performance</li>
+          <li>Bi-weekly feature releases with optimized API handling</li>
+          <li>Reusable SDK components for third-party integration</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">GarageWorks</div>
+        <div class="project-stack">SwiftUI · MVVM · REST APIs</div>
+        <ul class="project-points">
+          <li>Automotive service platform</li>
+          <li>Modular SwiftUI booking & service tracking</li>
+          <li>Optimized API integration for responsiveness</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Canvas Student App</div>
+        <div class="project-stack">Swift · UIKit · MVC · Alamofire</div>
+        <ul class="project-points">
+          <li>EdTech learning material platform</li>
+          <li>UI components & API integrations</li>
+          <li>Early-stage stability improvements</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label" style="justify-content:center;">04 — Reach out</div>
+    <h2>Let's <span>work together</span></h2>
+    <p class="contact-sub">Open to new opportunities. Drop a message anytime.</p>
+    <div class="contact-links">
+      <a href="mailto:kapildongre12@gmail.com" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        kapildongre12@gmail.com
+      </a>
+      <a href="tel:8485073376" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +91 8485073376
+      </a>
+      <a href="https://github.com/kapil0045" target="_blank" rel="noopener" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        github.com/kapil0045
+      </a>
+      <a href="https://linkedin.com/in/kapil-dongre" target="_blank" rel="noopener" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        linkedin.com/in/kapil-dongre
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 Kapil Dongre</span>
+    <span style="color:var(--muted)">Built with HTML · Deployable on GitHub Pages</span>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
